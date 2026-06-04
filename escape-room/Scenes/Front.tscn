@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c1ib8kncjudem"]
+
+[ext_resource type="Texture2D" uid="uid://fo35xdawv4bo" path="res://Assets/beach_house.png" id="1_xttt4"]
+[ext_resource type="Script" uid="uid://bbod11mmuvts6" path="res://Scripts/control.gd" id="2_8v6rx"]
+
+[node name="Node2D" type="Node2D" unique_id=1645497471]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=823170492]
+offset_right = 1164.4445
+offset_bottom = 655.0
+texture = ExtResource("1_xttt4")
+
+[node name="Control" type="Control" parent="." unique_id=80237371]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_8v6rx")
+
+[node name="Left" type="Button" parent="Control" unique_id=224168066]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 302.0
+offset_right = 91.0
+offset_bottom = 361.0
+
+[node name="Right" type="Button" parent="Control" unique_id=440950814]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 296.0
+offset_right = 1124.0
+offset_bottom = 355.0
+
+[connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
+[connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
