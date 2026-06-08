@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dpw0tfghub0bn"]
+
+[node name="Node2D" type="Node2D" unique_id=115161069]
+
+[node name="Label" type="Label" parent="." unique_id=485955540]
+offset_left = 396.0
+offset_top = 230.0
+offset_right = 612.0
+offset_bottom = 302.0
+text = "It\"s working (right)"
