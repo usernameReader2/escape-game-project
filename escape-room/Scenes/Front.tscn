@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://c1ib8kncjudem"]
 
+[ext_resource type="Script" uid="uid://drx1n3xyllslj" path="res://Scripts/manager.gd" id="1_xgt8o"]
 [ext_resource type="Texture2D" uid="uid://fo35xdawv4bo" path="res://Assets/beach_house.png" id="1_xttt4"]
 [ext_resource type="Script" uid="uid://bbod11mmuvts6" path="res://Scripts/control.gd" id="2_8v6rx"]
+[ext_resource type="Script" uid="uid://dagbtfhmp0an2" path="res://Scripts/frame.gd" id="4_6i4k7"]
+[ext_resource type="Script" uid="uid://cb77wo8hjgh4h" path="res://Scripts/front_lock.gd" id="5_7h6wq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgt8o"]
+size = Vector2(184, 110.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h6wq"]
+size = Vector2(35, 40)
 
 [node name="Node2D" type="Node2D" unique_id=1645497471]
+script = ExtResource("1_xgt8o")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=823170492]
-offset_right = 1164.4445
-offset_bottom = 655.0
+texture_filter = 1
+offset_right = 1154.0
+offset_bottom = 651.0
 texture = ExtResource("1_xttt4")
 
 [node name="Control" type="Control" parent="." unique_id=80237371]
@@ -31,5 +42,22 @@ offset_top = 296.0
 offset_right = 1124.0
 offset_bottom = 355.0
 
+[node name="Area2D" type="Area2D" parent="." unique_id=40633047]
+script = ExtResource("4_6i4k7")
+target_scene = "uid://dpw0tfghub0bn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1935965037]
+position = Vector2(114, 227)
+shape = SubResource("RectangleShape2D_xgt8o")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=2079875447]
+script = ExtResource("5_7h6wq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1852810976]
+position = Vector2(568.5, 341)
+shape = SubResource("RectangleShape2D_7h6wq")
+
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
+[connection signal="input_event" from="Area2D" to="Area2D" method="_frame_zoom"]
+[connection signal="input_event" from="Area2D2" to="Area2D2" method="_lock_interaction"]
