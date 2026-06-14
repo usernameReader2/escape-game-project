@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://brnu1p1jkgcwm"]
 
+[ext_resource type="Script" uid="uid://bbod11mmuvts6" path="res://Scripts/control.gd" id="1_0u5la"]
+
 [node name="Node2D" type="Node2D" unique_id=167268558]
 
 [node name="Label" type="Label" parent="." unique_id=1637861467]
@@ -9,3 +11,27 @@ offset_right = 693.0
 offset_bottom = 327.0
 theme_override_font_sizes/font_size = 48
 text = "It's working (left)"
+
+[node name="Control" type="Control" parent="." unique_id=664438709]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0u5la")
+
+[node name="Left" type="Button" parent="Control" unique_id=2139569459]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 302.0
+offset_right = 91.0
+offset_bottom = 361.0
+
+[node name="Right" type="Button" parent="Control" unique_id=1700893903]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 296.0
+offset_right = 1124.0
+offset_bottom = 355.0
+
+[connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
+[connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
