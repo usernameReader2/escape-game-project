@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://byys53dl8l0y4"]
+
+[ext_resource type="Script" uid="uid://cwv8dmlj1fjk8" path="res://Scripts/zoomed_frame.gd" id="1_habkn"]
+[ext_resource type="Texture2D" uid="uid://iqus6ry4lnee" path="res://Assets/button_back.png" id="2_onjd1"]
+
+[node name="Node2D" type="Node2D" unique_id=310758389]
+
+[node name="Control" type="Control" parent="." unique_id=1601462232]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_habkn")
+
+[node name="Button" type="TextureButton" parent="Control" unique_id=1824803408]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 563.0
+offset_right = 610.0
+offset_bottom = 627.0
+texture_normal = ExtResource("2_onjd1")
+
+[connection signal="pressed" from="Control/Button" to="Control" method="_go_back"]

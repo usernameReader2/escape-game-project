@@ -1,22 +1,53 @@
 [gd_scene format=3 uid="uid://crrc6k5w427uj"]
 
+[ext_resource type="Script" uid="uid://daxmntffn7gkf" path="res://Scripts/zoomed_safe.gd" id="1_tgh5g"]
+[ext_resource type="Texture2D" uid="uid://iqus6ry4lnee" path="res://Assets/button_back.png" id="2_ol0xh"]
+
 [node name="Node2D" type="Node2D" unique_id=1608678272]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1617919862]
-offset_left = 353.0
-offset_top = 248.0
-offset_right = 669.0
-offset_bottom = 311.0
+offset_left = 464.0
+offset_top = 540.0
+offset_right = 824.0
+offset_bottom = 616.0
 
-[node name="Control" type="Control" parent="." unique_id=1304757445]
+[node name="Control" type="Control" parent="." unique_id=1304757445 node_paths=PackedStringArray("first", "second", "third", "forth")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_tgh5g")
+first = NodePath("First_number")
+second = NodePath("Second_number")
+third = NodePath("Third_number")
+forth = NodePath("Forth_number")
 
-[node name="Button" type="Button" parent="Control" unique_id=1091543859]
+[node name="Button" type="TextureButton" parent="Control" unique_id=807096774]
 layout_mode = 0
-offset_left = 513.0
-offset_top = 432.0
-offset_right = 554.0
-offset_bottom = 454.0
+offset_left = 546.0
+offset_top = 563.0
+offset_right = 610.0
+offset_bottom = 627.0
+texture_normal = ExtResource("2_ol0xh")
+
+[node name="First_number" type="TextureButton" parent="Control" unique_id=828553450]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Second_number" type="TextureButton" parent="Control" unique_id=1554333223]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Third_number" type="TextureButton" parent="Control" unique_id=416809582]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Forth_number" type="TextureButton" parent="Control" unique_id=1468037377]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Control/Button" to="Control" method="_go_back"]

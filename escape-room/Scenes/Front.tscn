@@ -49,7 +49,7 @@ texture_normal = ExtResource("4_mupkl")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=40633047]
 script = ExtResource("4_6i4k7")
-target_scene = "uid://brnu1p1jkgcwm"
+target_scene = "uid://byys53dl8l0y4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1935965037]
 position = Vector2(114, 227)
