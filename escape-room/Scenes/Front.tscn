@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://drx1n3xyllslj" path="res://Scripts/manager.gd" id="1_xgt8o"]
 [ext_resource type="Texture2D" uid="uid://fo35xdawv4bo" path="res://Assets/beach_house.png" id="1_xttt4"]
-[ext_resource type="Script" uid="uid://bbod11mmuvts6" path="res://Scripts/control.gd" id="2_8v6rx"]
-[ext_resource type="Resource" uid="uid://cfpl2ooc8x13m" path="res://Inventory/player_inventory.tres" id="2_juq6q"]
+[ext_resource type="Script" uid="uid://bbod11mmuvts6" path="res://Scripts/front.gd" id="2_8v6rx"]
 [ext_resource type="Script" uid="uid://dagbtfhmp0an2" path="res://Scripts/frame.gd" id="4_6i4k7"]
+[ext_resource type="Texture2D" uid="uid://dxundbb7vrtih" path="res://Assets/button_test2.png" id="4_mupkl"]
+[ext_resource type="Texture2D" uid="uid://cufuwn0sur1jt" path="res://Assets/button_left.png" id="4_o8q1c"]
 [ext_resource type="Script" uid="uid://cb77wo8hjgh4h" path="res://Scripts/front_lock.gd" id="5_7h6wq"]
 [ext_resource type="PackedScene" uid="uid://0q3gdxdbd7yo" path="res://Inventory/inventory_ui.tscn" id="7_mupkl"]
 
@@ -16,7 +17,6 @@ size = Vector2(361.5, 477)
 
 [node name="Node2D" type="Node2D" unique_id=1645497471]
 script = ExtResource("1_xgt8o")
-inventory = ExtResource("2_juq6q")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=823170492]
 texture_filter = 1
@@ -31,23 +31,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_8v6rx")
 
-[node name="Left" type="Button" parent="Control" unique_id=224168066]
+[node name="Left" type="TextureButton" parent="Control" unique_id=349657923]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 302.0
-offset_right = 91.0
-offset_bottom = 361.0
+offset_top = 296.0
+offset_right = 96.0
+offset_bottom = 360.0
+texture_normal = ExtResource("4_o8q1c")
 
-[node name="Right" type="Button" parent="Control" unique_id=440950814]
+[node name="Right" type="TextureButton" parent="Control" unique_id=620753581]
 layout_mode = 0
 offset_left = 1065.0
 offset_top = 296.0
-offset_right = 1124.0
-offset_bottom = 355.0
+offset_right = 1129.0
+offset_bottom = 360.0
+texture_normal = ExtResource("4_mupkl")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=40633047]
 script = ExtResource("4_6i4k7")
-target_scene = "uid://dpw0tfghub0bn"
+target_scene = "uid://brnu1p1jkgcwm"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1935965037]
 position = Vector2(114, 227)
@@ -61,6 +63,11 @@ position = Vector2(563, 318)
 shape = SubResource("RectangleShape2D_7h6wq")
 
 [node name="Inventory_UI" parent="." unique_id=966913019 instance=ExtResource("7_mupkl")]
+visible = false
+offset_left = 33.0
+offset_top = 484.0
+offset_right = 33.0
+offset_bottom = 484.0
 
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]

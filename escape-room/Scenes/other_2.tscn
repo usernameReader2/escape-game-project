@@ -1,36 +1,52 @@
 [gd_scene format=3 uid="uid://dpw0tfghub0bn"]
 
-[ext_resource type="Script" uid="uid://bbod11mmuvts6" path="res://Scripts/control.gd" id="1_to0ow"]
+[ext_resource type="Script" uid="uid://bo8erd6ttko5h" path="res://Scripts/other_2.gd" id="1_fkey5"]
+[ext_resource type="Texture2D" uid="uid://cufuwn0sur1jt" path="res://Assets/button_left.png" id="2_fkey5"]
+[ext_resource type="Texture2D" uid="uid://dxundbb7vrtih" path="res://Assets/button_test2.png" id="3_bt66b"]
+[ext_resource type="Script" uid="uid://ckl6evtbjowy4" path="res://Scripts/safe.gd" id="4_bt66b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofumk"]
+size = Vector2(110, 49)
 
 [node name="Node2D" type="Node2D" unique_id=115161069]
 
-[node name="Label" type="Label" parent="." unique_id=485955540]
-offset_left = 396.0
-offset_top = 230.0
-offset_right = 612.0
-offset_bottom = 302.0
-text = "It\"s working (right)"
+[node name="ColorRect" type="ColorRect" parent="." unique_id=673096283]
+offset_left = 352.0
+offset_top = 331.0
+offset_right = 466.0
+offset_bottom = 383.0
 
 [node name="Control" type="Control" parent="." unique_id=1467357664]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_to0ow")
+script = ExtResource("1_fkey5")
 
-[node name="Left" type="Button" parent="Control" unique_id=1517853644]
+[node name="Left" type="TextureButton" parent="Control" unique_id=1418177974]
 layout_mode = 0
 offset_left = 32.0
-offset_top = 302.0
+offset_top = 296.0
 offset_right = 91.0
-offset_bottom = 361.0
+offset_bottom = 355.0
+texture_normal = ExtResource("2_fkey5")
 
-[node name="Right" type="Button" parent="Control" unique_id=1647675851]
+[node name="Right" type="TextureButton" parent="Control" unique_id=1808969864]
 layout_mode = 0
 offset_left = 1065.0
 offset_top = 296.0
 offset_right = 1124.0
 offset_bottom = 355.0
+texture_normal = ExtResource("3_bt66b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1886318223]
+script = ExtResource("4_bt66b")
+zoomed_safe = "uid://crrc6k5w427uj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2040009635]
+position = Vector2(409, 357)
+shape = SubResource("RectangleShape2D_ofumk")
 
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
+[connection signal="input_event" from="Area2D" to="Area2D" method="_safe_zoom"]

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://g8rkccmrul0o"]
+
+[ext_resource type="Script" uid="uid://dddavtn4h28ss" path="res://Scripts/other3.gd" id="1_70s0s"]
+[ext_resource type="Texture2D" uid="uid://cufuwn0sur1jt" path="res://Assets/button_left.png" id="2_iihjc"]
+[ext_resource type="Texture2D" uid="uid://dxundbb7vrtih" path="res://Assets/button_test2.png" id="3_c6jwe"]
+
+[node name="Node2D" type="Node2D" unique_id=1868930439]
+
+[node name="Control" type="Control" parent="." unique_id=1807543091]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_70s0s")
+
+[node name="Left" type="TextureButton" parent="Control" unique_id=187840929]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 296.0
+offset_right = 91.0
+offset_bottom = 355.0
+texture_normal = ExtResource("2_iihjc")
+
+[node name="Right" type="TextureButton" parent="Control" unique_id=461145001]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 296.0
+offset_right = 1124.0
+offset_bottom = 355.0
+texture_normal = ExtResource("3_c6jwe")
+
+[connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
+[connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]

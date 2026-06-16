@@ -1,17 +1,18 @@
-extends Node2D
+extends Control
 
-var point = load("res://Assets/cursor_point.png")
-var click = load("res://Assets/cursor_click.png")
-
-@export var inv: Inventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-	Input.set_custom_mouse_cursor(point)
-	Input.set_custom_mouse_cursor(click, Input.CURSOR_POINTING_HAND)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _go_left() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/other3.tscn")
+
+func _go_right() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/Front.tscn")

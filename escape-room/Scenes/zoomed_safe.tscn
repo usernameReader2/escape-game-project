@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://crrc6k5w427uj"]
+
+[node name="Node2D" type="Node2D" unique_id=1608678272]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1617919862]
+offset_left = 353.0
+offset_top = 248.0
+offset_right = 669.0
+offset_bottom = 311.0
+
+[node name="Control" type="Control" parent="." unique_id=1304757445]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control" unique_id=1091543859]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 432.0
+offset_right = 554.0
+offset_bottom = 454.0
