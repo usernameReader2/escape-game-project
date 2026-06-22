@@ -6,10 +6,10 @@
 [node name="Node2D" type="Node2D" unique_id=1608678272]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1617919862]
-offset_left = 464.0
-offset_top = 540.0
-offset_right = 824.0
-offset_bottom = 616.0
+offset_left = 274.0
+offset_top = 140.0
+offset_right = 937.0
+offset_bottom = 475.0
 
 [node name="Control" type="Control" parent="." unique_id=1304757445 node_paths=PackedStringArray("first", "second", "third", "forth")]
 layout_mode = 3
@@ -17,10 +17,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_tgh5g")
-first = NodePath("First_number")
-second = NodePath("Second_number")
-third = NodePath("Third_number")
-forth = NodePath("Forth_number")
+first = NodePath("HBoxContainer/First_number")
+second = NodePath("HBoxContainer/Second_number")
+third = NodePath("HBoxContainer/Third_number")
+forth = NodePath("HBoxContainer/Forth_number")
 
 [node name="Button" type="TextureButton" parent="Control" unique_id=807096774]
 layout_mode = 0
@@ -30,24 +30,33 @@ offset_right = 610.0
 offset_bottom = 627.0
 texture_normal = ExtResource("2_ol0xh")
 
-[node name="First_number" type="TextureButton" parent="Control" unique_id=828553450]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1061197476]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 372.0
+offset_top = 253.0
+offset_right = 816.0
+offset_bottom = 349.0
+theme_override_constants/separation = 90
 
-[node name="Second_number" type="TextureButton" parent="Control" unique_id=1554333223]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="First_number" type="Button" parent="Control/HBoxContainer" unique_id=1846387953]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "0"
 
-[node name="Third_number" type="TextureButton" parent="Control" unique_id=416809582]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Second_number" type="Button" parent="Control/HBoxContainer" unique_id=1465453272]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "0"
 
-[node name="Forth_number" type="TextureButton" parent="Control" unique_id=1468037377]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Third_number" type="Button" parent="Control/HBoxContainer" unique_id=1370555711]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "0"
+
+[node name="Forth_number" type="Button" parent="Control/HBoxContainer" unique_id=1767094532]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "0"
 
 [connection signal="pressed" from="Control/Button" to="Control" method="_go_back"]
+[connection signal="pressed" from="Control/HBoxContainer/First_number" to="Control" method="_on_first_number_pressed"]

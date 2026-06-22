@@ -63,11 +63,10 @@ position = Vector2(563, 318)
 shape = SubResource("RectangleShape2D_7h6wq")
 
 [node name="Inventory_UI" parent="." unique_id=966913019 instance=ExtResource("7_mupkl")]
-visible = false
-offset_left = 33.0
-offset_top = 484.0
-offset_right = 33.0
-offset_bottom = 484.0
+offset_left = 578.0
+offset_top = 619.0
+offset_right = 578.0
+offset_bottom = 619.0
 
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]

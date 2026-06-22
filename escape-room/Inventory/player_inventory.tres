@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://bg073urrionx7" path="res://Inventory/inventory_item.gd" id="1_5tggb"]
 [ext_resource type="Resource" uid="uid://3j11gl83y48d" path="res://Inventory/items/key.tres" id="2_k7d1n"]
 [ext_resource type="Script" uid="uid://w7w5pysjlcf" path="res://Inventory/inventory.gd" id="3_u1pke"]
+[ext_resource type="Texture2D" uid="uid://cij2cllltj5sp" path="res://Assets/key.png" id="4_k7d1n"]
 
 [resource]
 script = ExtResource("3_u1pke")
 items = Array[ExtResource("1_5tggb")]([ExtResource("2_k7d1n"), null, null, null, null, null])
+name = "Key"
+texture = ExtResource("4_k7d1n")
 metadata/_custom_type_script = "uid://w7w5pysjlcf"

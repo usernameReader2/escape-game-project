@@ -1,18 +1,64 @@
 [gd_scene format=3 uid="uid://0q3gdxdbd7yo"]
 
 [ext_resource type="Script" uid="uid://cs2g5hqp5n6a5" path="res://Inventory/inventory_ui.gd" id="1_se627"]
+[ext_resource type="PackedScene" uid="uid://usmwsc1v2740" path="res://Scenes/panel.tscn" id="2_o6avf"]
+[ext_resource type="Resource" uid="uid://3j11gl83y48d" path="res://Inventory/items/key.tres" id="3_6gduq"]
 
 [node name="Inventory_UI" type="Control" unique_id=966913019]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = 8.0
+offset_right = -7.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_se627")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=574568256]
-layout_mode = 0
-offset_right = 1086.0
-offset_bottom = 137.0
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -543.0
+offset_top = -82.0
+offset_right = 543.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0.87333614, 0.21405536, 0.6545497, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1962851369]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1885571929]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -80.0
+offset_right = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Panel" parent="CanvasLayer/HBoxContainer" unique_id=471398129 instance=ExtResource("2_o6avf")]
+layout_mode = 2
+item = ExtResource("3_6gduq")
+
+[node name="Panel2" parent="CanvasLayer/HBoxContainer" unique_id=1897895649 instance=ExtResource("2_o6avf")]
+layout_mode = 2
+
+[node name="Panel3" parent="CanvasLayer/HBoxContainer" unique_id=645423681 instance=ExtResource("2_o6avf")]
+layout_mode = 2
+
+[node name="Panel4" parent="CanvasLayer/HBoxContainer" unique_id=792634839 instance=ExtResource("2_o6avf")]
+layout_mode = 2
+
+[node name="Panel5" parent="CanvasLayer/HBoxContainer" unique_id=849622480 instance=ExtResource("2_o6avf")]
+layout_mode = 2
