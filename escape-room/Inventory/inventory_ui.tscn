@@ -9,9 +9,7 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -7.0
 offset_top = 8.0
-offset_right = -7.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -40,11 +38,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -40.0
+offset_left = -285.0
 offset_top = -80.0
-offset_right = 40.0
+offset_right = 285.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 95
 alignment = 1
 
 [node name="Panel" parent="CanvasLayer/HBoxContainer" unique_id=471398129 instance=ExtResource("2_o6avf")]
@@ -62,3 +61,23 @@ layout_mode = 2
 
 [node name="Panel5" parent="CanvasLayer/HBoxContainer" unique_id=849622480 instance=ExtResource("2_o6avf")]
 layout_mode = 2
+
+[node name="Panel6" parent="CanvasLayer/HBoxContainer" unique_id=482035191 instance=ExtResource("2_o6avf")]
+layout_mode = 2
+item = ExtResource("3_6gduq")
+
+[node name="Panel7" parent="CanvasLayer/HBoxContainer" unique_id=1563797961 instance=ExtResource("2_o6avf")]
+layout_mode = 2
+item = ExtResource("3_6gduq")
+
+[node name="Panel8" parent="CanvasLayer/HBoxContainer" unique_id=790716962 instance=ExtResource("2_o6avf")]
+layout_mode = 2
+item = ExtResource("3_6gduq")
+
+[node name="Panel9" parent="CanvasLayer/HBoxContainer" unique_id=135832098 instance=ExtResource("2_o6avf")]
+layout_mode = 2
+item = ExtResource("3_6gduq")
+
+[node name="Panel10" parent="CanvasLayer/HBoxContainer" unique_id=970700937 instance=ExtResource("2_o6avf")]
+layout_mode = 2
+item = ExtResource("3_6gduq")
