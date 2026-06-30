@@ -3,6 +3,7 @@ extends Control
 var default_code = [0, 0, 0, 0]
 var code_enter = [3, 9, 2, 4]
 var max: int = 10
+var key = "res://Scenes/area_2d.tscn"
 
 func _go_back() -> void:
 	get_tree().change_scene_to_file("res://Scenes/other_2.tscn")
@@ -32,10 +33,3 @@ func _check_code() -> void:
 		$HBoxContainer.queue_free()
 	else: 
 		print("no")
-		
-		
-	
-		
-		
-		
-	

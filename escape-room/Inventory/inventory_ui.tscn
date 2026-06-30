@@ -16,7 +16,6 @@ grow_vertical = 2
 script = ExtResource("1_se627")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=574568256]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

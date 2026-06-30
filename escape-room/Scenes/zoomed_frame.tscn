@@ -13,6 +13,7 @@ offset_bottom = 40.0
 script = ExtResource("1_habkn")
 
 [node name="Button" type="TextureButton" parent="Control" unique_id=1824803408]
+texture_filter = 1
 layout_mode = 0
 offset_left = 546.0
 offset_top = 563.0

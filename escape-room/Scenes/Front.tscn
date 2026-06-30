@@ -8,12 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cufuwn0sur1jt" path="res://Assets/button_left.png" id="4_o8q1c"]
 [ext_resource type="Script" uid="uid://cb77wo8hjgh4h" path="res://Scripts/front_lock.gd" id="5_7h6wq"]
 [ext_resource type="PackedScene" uid="uid://0q3gdxdbd7yo" path="res://Inventory/inventory_ui.tscn" id="7_mupkl"]
+[ext_resource type="Script" uid="uid://c486f6ixcht0u" path="res://Scripts/sign_outside.gd" id="9_hus87"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgt8o"]
 size = Vector2(184, 110.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h6wq"]
-size = Vector2(361.5, 477)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hus87"]
+size = Vector2(70.405594, 39.886574)
 
 [node name="Node2D" type="Node2D" unique_id=1645497471]
 script = ExtResource("1_xgt8o")
@@ -55,20 +56,74 @@ target_scene = "uid://byys53dl8l0y4"
 position = Vector2(114, 227)
 shape = SubResource("RectangleShape2D_xgt8o")
 
-[node name="Area2D2" type="Area2D" parent="." unique_id=2079875447]
+[node name="Area2D2" type="Area2D" parent="." unique_id=2079875447 node_paths=PackedStringArray("apperence")]
 script = ExtResource("5_7h6wq")
+apperence = NodePath("Label")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1852810976]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2" unique_id=974551396]
 position = Vector2(563, 318)
-shape = SubResource("RectangleShape2D_7h6wq")
+polygon = PackedVector2Array(-333, -235, 333, -232, 337, 236, -332, 240, -332, 66, -208, 38, -220, -9, -293, 9, -284, 51, -333, 62)
+
+[node name="Label" type="Label" parent="Area2D2" unique_id=872646452]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 464.0
+offset_top = 492.0
+offset_right = 675.0
+offset_bottom = 526.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "The door is locked"
 
 [node name="Inventory_UI" parent="." unique_id=966913019 instance=ExtResource("7_mupkl")]
+visible = false
 offset_left = 578.0
 offset_top = 619.0
 offset_right = 578.0
 offset_bottom = 619.0
 
+[node name="Area2D3" type="Area2D" parent="." unique_id=1394688758 node_paths=PackedStringArray("apperence")]
+script = ExtResource("9_hus87")
+apperence = NodePath("Label")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D3" unique_id=1436331454]
+visible = false
+position = Vector2(-3, 2)
+polygon = PackedVector2Array(277, 327, 344, 312, 354, 350, 287, 366)
+
+[node name="Label" type="Label" parent="Area2D3" unique_id=85353648]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 377.0
+offset_top = 492.0
+offset_right = 770.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "It's too far to see what is written
+"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=607291694]
+position = Vector2(313.1279, 340.5218)
+rotation = -0.24029621
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_hus87")
+
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_frame_zoom"]
 [connection signal="input_event" from="Area2D2" to="Area2D2" method="_lock_interaction"]
+[connection signal="input_event" from="Area2D3" to="Area2D3" method="_interact_with"]
