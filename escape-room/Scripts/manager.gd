@@ -1,7 +1,7 @@
 extends Node2D
 
-var point = load("res://Assets/cursor_point.png")
-var click = load("res://Assets/cursor_click.png")
+var point = preload("res://Assets/cursor_point.png")
+var click = preload("res://Assets/cursor_click.png")
 
 @export var inv: Inventory
 
@@ -9,9 +9,17 @@ var click = load("res://Assets/cursor_click.png")
 func _ready() -> void:
 	pass # Replace with function body.
 	Input.set_custom_mouse_cursor(point)
-	Input.set_custom_mouse_cursor(click, Input.CURSOR_POINTING_HAND)
 
+func change_cursor():
+	Input.set_custom_mouse_cursor(click)
+	
+func change_cursor_back():
+	Input.set_custom_mouse_cursor(point)
 
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _inventory_ui() -> void:
+	pass # Replace with function body.

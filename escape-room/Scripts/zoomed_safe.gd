@@ -1,5 +1,7 @@
 extends Control
 
+var open: bool = false
+
 var default_code = [0, 0, 0, 0]
 var code_enter = [3, 9, 2, 4]
 var max: int = 10
@@ -31,5 +33,6 @@ func _on_forth_number_pressed() -> void:
 func _check_code() -> void:
 	if default_code == code_enter:
 		$HBoxContainer.queue_free()
+		open = true
 	else: 
 		print("no")

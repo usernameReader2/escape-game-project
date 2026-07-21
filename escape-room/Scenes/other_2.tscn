@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dpw0tfghub0bn"]
 
 [ext_resource type="Script" uid="uid://bo8erd6ttko5h" path="res://Scripts/other_2.gd" id="1_fkey5"]
+[ext_resource type="Texture2D" uid="uid://clxl2gp50i5nb" path="res://Assets/plain_wall.png" id="1_ofumk"]
 [ext_resource type="Texture2D" uid="uid://cufuwn0sur1jt" path="res://Assets/button_left.png" id="2_fkey5"]
 [ext_resource type="Texture2D" uid="uid://dxundbb7vrtih" path="res://Assets/button_test2.png" id="3_bt66b"]
 [ext_resource type="Script" uid="uid://ckl6evtbjowy4" path="res://Scripts/safe.gd" id="4_bt66b"]
@@ -9,6 +10,12 @@
 size = Vector2(110, 49)
 
 [node name="Node2D" type="Node2D" unique_id=115161069]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=348951654]
+texture_filter = 1
+offset_right = 1154.0
+offset_bottom = 651.0
+texture = ExtResource("1_ofumk")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=673096283]
 visible = false

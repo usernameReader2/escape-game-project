@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cwv8dmlj1fjk8" path="res://Scripts/zoomed_frame.gd" id="1_habkn"]
 [ext_resource type="Texture2D" uid="uid://iqus6ry4lnee" path="res://Assets/button_back.png" id="2_onjd1"]
+[ext_resource type="Script" uid="uid://01d6psw5jjmw" path="res://Scripts/hanging_frame.gd" id="3_drrof"]
+[ext_resource type="Texture2D" uid="uid://b72kur7ihv28t" path="res://Assets/item_slot.png" id="4_vyby6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi0yy"]
+size = Vector2(410.5, 213.5)
 
 [node name="Node2D" type="Node2D" unique_id=310758389]
 
@@ -21,4 +26,19 @@ offset_right = 610.0
 offset_bottom = 627.0
 texture_normal = ExtResource("2_onjd1")
 
+[node name="Area2D" type="Area2D" parent="." unique_id=85187360]
+script = ExtResource("3_drrof")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=237456078]
+position = Vector2(505, 293.5)
+scale = Vector2(6.299999, 2.8166664)
+texture = ExtResource("4_vyby6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=109402773]
+position = Vector2(502.75, 292.25)
+shape = SubResource("RectangleShape2D_oi0yy")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1865834747]
+
 [connection signal="pressed" from="Control/Button" to="Control" method="_go_back"]
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
