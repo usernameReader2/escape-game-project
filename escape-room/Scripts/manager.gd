@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var point = preload("res://Assets/cursor_point.png")
 var click = preload("res://Assets/cursor_click.png")
 
@@ -15,11 +16,6 @@ func change_cursor():
 	
 func change_cursor_back():
 	Input.set_custom_mouse_cursor(point)
-
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _inventory_ui() -> void:
 	pass # Replace with function body.

@@ -13,14 +13,6 @@ offset_right = 1154.0
 offset_bottom = 651.0
 texture = ExtResource("1_vpn56")
 
-[node name="Label" type="Label" parent="." unique_id=1637861467]
-offset_left = 424.0
-offset_top = 260.0
-offset_right = 693.0
-offset_bottom = 327.0
-theme_override_font_sizes/font_size = 48
-text = "It's working (left)"
-
 [node name="Control" type="Control" parent="." unique_id=664438709]
 layout_mode = 3
 anchors_preset = 0

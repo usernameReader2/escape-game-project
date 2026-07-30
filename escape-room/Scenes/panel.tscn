@@ -14,3 +14,5 @@ layout_mode = 0
 offset_right = 80.0
 offset_bottom = 80.0
 texture = ExtResource("2_r1uyw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=328972835]
