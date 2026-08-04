@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drx1n3xyllslj" path="res://Scripts/manager.gd" id="1_xgt8o"]
 [ext_resource type="Script" uid="uid://bbod11mmuvts6" path="res://Scripts/front.gd" id="2_8v6rx"]
-[ext_resource type="Texture2D" uid="uid://cm0sxp8ck4eno" path="res://Assets/beach_houseV2.png" id="2_jsx27"]
+[ext_resource type="Texture2D" uid="uid://dq6qe2pbv81c3" path="res://Assets/beach_houseV3.png" id="2_pwcy5"]
 [ext_resource type="Script" uid="uid://dagbtfhmp0an2" path="res://Scripts/frame.gd" id="4_6i4k7"]
 [ext_resource type="Texture2D" uid="uid://dxundbb7vrtih" path="res://Assets/button_test2.png" id="4_mupkl"]
 [ext_resource type="Texture2D" uid="uid://cufuwn0sur1jt" path="res://Assets/button_left.png" id="4_o8q1c"]
@@ -28,7 +28,7 @@ script = ExtResource("1_xgt8o")
 texture_filter = 1
 offset_right = 1154.0
 offset_bottom = 651.0
-texture = ExtResource("2_jsx27")
+texture = ExtResource("2_pwcy5")
 
 [node name="Control" type="Control" parent="." unique_id=80237371]
 layout_mode = 3
@@ -137,7 +137,7 @@ script = ExtResource("5_7h6wq")
 apperence = NodePath("../Area2D2/Label")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="front_door" unique_id=974551396]
-position = Vector2(-611, 396)
+position = Vector2(359, 818)
 polygon = PackedVector2Array(-332, -199, 272, -199, 273, 215, -332, 215, -332, 65, -219, 36, -228, 3, -288, 17, -281, 49, -332, 62)
 
 [node name="sign_outside" type="Area2D" parent="." unique_id=1394688758 node_paths=PackedStringArray("apperence") groups=["item_needed"]]
@@ -157,5 +157,5 @@ shape = SubResource("RectangleShape2D_hus87")
 [connection signal="mouse_exited" from="Area2D" to="." method="change_cursor_back"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_inventory_ui"]
 [connection signal="input_event" from="Area2D2" to="Area2D2" method="_interact"]
-[connection signal="input_event" from="front_door" to="Area2D2" method="_interact"]
-[connection signal="input_event" from="sign_outside" to="Area2D2" method="_interact"]
+[connection signal="mouse_entered" from="Area2D2" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Area2D2" to="." method="change_cursor_back"]

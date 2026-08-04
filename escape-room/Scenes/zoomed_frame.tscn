@@ -8,6 +8,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oi0yy"]
 size = Vector2(410.5, 213.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyby6"]
+size = Vector2(251, 134)
+
 [node name="Node2D" type="Node2D" unique_id=310758389]
 
 [node name="Control" type="Control" parent="." unique_id=1601462232]
@@ -39,6 +42,14 @@ position = Vector2(502.75, 292.25)
 shape = SubResource("RectangleShape2D_oi0yy")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1865834747]
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=750007553]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=82664963]
+position = Vector2(898, 146)
+shape = SubResource("RectangleShape2D_vyby6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=138175369]
 
 [connection signal="pressed" from="Control/Button" to="Control" method="_go_back"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]

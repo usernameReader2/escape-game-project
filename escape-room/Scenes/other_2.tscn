@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dpw0tfghub0bn"]
 
+[ext_resource type="Script" uid="uid://drx1n3xyllslj" path="res://Scripts/manager.gd" id="1_656pw"]
 [ext_resource type="Script" uid="uid://bo8erd6ttko5h" path="res://Scripts/other_2.gd" id="1_fkey5"]
 [ext_resource type="Texture2D" uid="uid://clxl2gp50i5nb" path="res://Assets/plain_wall.png" id="1_ofumk"]
 [ext_resource type="Texture2D" uid="uid://cufuwn0sur1jt" path="res://Assets/button_left.png" id="2_fkey5"]
@@ -10,6 +11,7 @@
 size = Vector2(110, 49)
 
 [node name="Node2D" type="Node2D" unique_id=115161069]
+script = ExtResource("1_656pw")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=348951654]
 texture_filter = 1
@@ -58,3 +60,5 @@ shape = SubResource("RectangleShape2D_ofumk")
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_safe_zoom"]
+[connection signal="mouse_entered" from="Area2D" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Area2D" to="." method="change_cursor_back"]

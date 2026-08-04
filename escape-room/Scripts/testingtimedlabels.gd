@@ -3,7 +3,7 @@ extends Area2D
 @export var appearence_1: Label
 @export var appearence_2: Label
 
-func _interact(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _interact(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if $door:
 			print("The doors are locked")
@@ -15,3 +15,6 @@ func _interact(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			appearence_2.show()
 			await get_tree().create_timer(3.0).timeout
 			appearence_2.hide()
+
+func timeout():
+	get_tree().create_timer(3.0).timeout
