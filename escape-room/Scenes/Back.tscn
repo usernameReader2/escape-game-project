@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://g8rkccmrul0o"]
+
+[ext_resource type="Script" uid="uid://drx1n3xyllslj" path="res://Scripts/manager.gd" id="1_efy8y"]
+[ext_resource type="Texture2D" uid="uid://clxl2gp50i5nb" path="res://Assets/plain_wall.png" id="2_myxvq"]
+[ext_resource type="Script" uid="uid://dddavtn4h28ss" path="res://Scripts/Back.gd" id="3_1eyb5"]
+[ext_resource type="Texture2D" uid="uid://cufuwn0sur1jt" path="res://Assets/button_left.png" id="4_j3rf5"]
+[ext_resource type="Texture2D" uid="uid://dxundbb7vrtih" path="res://Assets/button_test2.png" id="5_xpru3"]
+[ext_resource type="Texture2D" uid="uid://bvuksvpn0dd58" path="res://Assets/couch.PNG" id="6_hnh65"]
+[ext_resource type="Texture2D" uid="uid://cw27o6f3b7xba" path="res://Assets/couch_cushion.PNG" id="7_1eyb5"]
+[ext_resource type="Texture2D" uid="uid://x6wangephw2f" path="res://Assets/wall_frame.png" id="7_d4eji"]
+[ext_resource type="Script" uid="uid://dagbtfhmp0an2" path="res://Scripts/frame.gd" id="8_myxvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eyb5"]
+size = Vector2(214, 127.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70s0s"]
+size = Vector2(146.88779, 32.23616)
+
+[node name="Node2D" type="Node2D" unique_id=1868930439]
+script = ExtResource("1_efy8y")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=404952410]
+texture_filter = 1
+offset_right = 1154.0
+offset_bottom = 651.0
+texture = ExtResource("2_myxvq")
+
+[node name="Control" type="Control" parent="." unique_id=1807543091]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_1eyb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Left" type="TextureButton" parent="Control" unique_id=187840929]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 296.0
+offset_right = 91.0
+offset_bottom = 355.0
+texture_normal = ExtResource("4_j3rf5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Right" type="TextureButton" parent="Control" unique_id=461145001]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 296.0
+offset_right = 1124.0
+offset_bottom = 355.0
+texture_normal = ExtResource("5_xpru3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1723656759]
+texture_filter = 1
+position = Vector2(592, 351)
+scale = Vector2(1.4494047, 1.4494046)
+texture = ExtResource("6_hnh65")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=547602513]
+texture_filter = 1
+position = Vector2(480.667, 472)
+scale = Vector2(1.471269, 1.4804696)
+texture = ExtResource("7_1eyb5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1643533418]
+script = ExtResource("8_myxvq")
+target_scene = "uid://byys53dl8l0y4"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Area2D" unique_id=1468047544]
+position = Vector2(582, 188)
+scale = Vector2(0.5333333, 0.53333336)
+texture = ExtResource("7_d4eji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1589471864]
+position = Vector2(579, 206.4375)
+shape = SubResource("RectangleShape2D_1eyb5")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1978591395]
+position = Vector2(592, 351)
+scale = Vector2(1.4494051, 1.449405)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Area2D2" unique_id=340987722]
+texture_filter = 1
+position = Vector2(-76.8129, 83.48253)
+scale = Vector2(1.0150847, 1.0214326)
+texture = ExtResource("7_1eyb5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=750688029]
+visible = false
+position = Vector2(-84.48288, 80.72279)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_70s0s")
+
+[connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
+[connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
+[connection signal="input_event" from="Area2D" to="Area2D" method="_frame_zoom"]
+[connection signal="mouse_entered" from="Area2D" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Area2D" to="." method="change_cursor_back"]
+[connection signal="mouse_entered" from="Area2D2" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Area2D2" to="." method="change_cursor_back"]

@@ -1,12 +1,12 @@
 extends Node
 
-var used_things: Array[String] = []
+var used_things: = {}
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
 	pass
+	
+func queued(node: Node):
+	var path = get_path()
+	Gamemanager.remove_child(path)
+	node.queue_free()
+	

@@ -6,6 +6,26 @@
 [ext_resource type="Texture2D" uid="uid://cufuwn0sur1jt" path="res://Assets/button_left.png" id="2_nxcd5"]
 [ext_resource type="Texture2D" uid="uid://dxundbb7vrtih" path="res://Assets/button_test2.png" id="3_vpn56"]
 [ext_resource type="Texture2D" uid="uid://cf5pmj7n7yglp" path="res://Assets/Shelf.PNG" id="5_el2gv"]
+[ext_resource type="Texture2D" uid="uid://7v7ghudboojb" path="res://Assets/actualbed.PNG" id="7_si36o"]
+[ext_resource type="Texture2D" uid="uid://6a8qgvcjvt8h" path="res://Assets/Pillow.PNG" id="8_0pg3f"]
+[ext_resource type="Texture2D" uid="uid://ce8x7q54qcous" path="res://Assets/Bedcovers_normal.PNG" id="9_aef76"]
+[ext_resource type="Texture2D" uid="uid://7bsu8dkswaqc" path="res://Assets/Bedcovers_pulled.PNG" id="10_x8ly2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mwtp3"]
+radius = 24.999878
+height = 136.01257
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81m3k"]
+size = Vector2(294, 187)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2utl"]
+size = Vector2(145.5, 59.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jo4lv"]
+size = Vector2(67, 79.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5sem"]
+size = Vector2(182.25, 184.75)
 
 [node name="Node2D" type="Node2D" unique_id=167268558]
 script = ExtResource("1_81m3k")
@@ -39,10 +59,67 @@ offset_right = 91.0
 offset_bottom = 355.0
 texture_normal = ExtResource("2_nxcd5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1803849504]
-position = Vector2(651, 314)
+[node name="Shelf" type="Sprite2D" parent="." unique_id=1803849504]
+position = Vector2(618.99994, 314)
 scale = Vector2(1.5476191, 1.547619)
 texture = ExtResource("5_el2gv")
 
+[node name="Bed_frame" type="Sprite2D" parent="." unique_id=198252195]
+position = Vector2(656.00006, 305)
+scale = Vector2(1.2761905, 1.2761904)
+texture = ExtResource("7_si36o")
+
+[node name="pillow" type="Area2D" parent="." unique_id=536631267]
+
+[node name="Sprite2D3" type="Sprite2D" parent="pillow" unique_id=1727219789]
+texture_filter = 1
+position = Vector2(711, 310)
+texture = ExtResource("8_0pg3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pillow" unique_id=1145093266]
+position = Vector2(909.99994, 352.99997)
+rotation = 1.5674691
+shape = SubResource("CapsuleShape2D_mwtp3")
+
+[node name="bedcovers_normal" type="Area2D" parent="." unique_id=473349924]
+
+[node name="Sprite2D" type="Sprite2D" parent="bedcovers_normal" unique_id=1165358395]
+texture_filter = 1
+position = Vector2(647, 300)
+scale = Vector2(1.3089285, 1.3089284)
+texture = ExtResource("9_aef76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bedcovers_normal" unique_id=1109130456]
+position = Vector2(912, 452.5)
+shape = SubResource("RectangleShape2D_81m3k")
+
+[node name="bedsidetable_placeholder" type="Area2D" parent="." unique_id=429269717]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bedsidetable_placeholder" unique_id=1669591792]
+position = Vector2(655, 413)
+shape = SubResource("RectangleShape2D_g2utl")
+
+[node name="picture_frame_p_h" type="Area2D" parent="." unique_id=164935074]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="picture_frame_p_h" unique_id=650435418]
+position = Vector2(671, 327)
+shape = SubResource("RectangleShape2D_jo4lv")
+
+[node name="bedcovers_pulled" type="Area2D" parent="." unique_id=1599466649]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="bedcovers_pulled" unique_id=1035804158]
+texture_filter = 1
+position = Vector2(645, 299)
+scale = Vector2(1.3154764, 1.3154762)
+texture = ExtResource("10_x8ly2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bedcovers_pulled" unique_id=2144030868]
+position = Vector2(969.875, 452.625)
+shape = SubResource("RectangleShape2D_k5sem")
+debug_color = Color(0, 0.639548, 0.36757, 0.41960785)
+
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
+[connection signal="input_event" from="pillow" to="." method="_remove_pillow"]
+[connection signal="input_event" from="bedcovers_normal" to="." method="_pullaway"]

@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _go_left() -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://Scenes/other3.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/Back.tscn")
 
 func _go_right() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/Front.tscn")

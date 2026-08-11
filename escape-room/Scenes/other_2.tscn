@@ -6,9 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://cufuwn0sur1jt" path="res://Assets/button_left.png" id="2_fkey5"]
 [ext_resource type="Texture2D" uid="uid://dxundbb7vrtih" path="res://Assets/button_test2.png" id="3_bt66b"]
 [ext_resource type="Script" uid="uid://ckl6evtbjowy4" path="res://Scripts/safe.gd" id="4_bt66b"]
+[ext_resource type="Script" uid="uid://c64vs5v3h083v" path="res://Scripts/window_placeholder.gd" id="7_a55co"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofumk"]
 size = Vector2(110, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_656pw"]
+size = Vector2(270.5, 226)
 
 [node name="Node2D" type="Node2D" unique_id=115161069]
 script = ExtResource("1_656pw")
@@ -54,11 +58,32 @@ script = ExtResource("4_bt66b")
 zoomed_safe = "uid://crrc6k5w427uj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2040009635]
-position = Vector2(409, 357)
+position = Vector2(248, 344)
 shape = SubResource("RectangleShape2D_ofumk")
+
+[node name="Window_placeholder" type="Area2D" parent="." unique_id=2105175675 node_paths=PackedStringArray("outside")]
+script = ExtResource("7_a55co")
+outside = NodePath("Label")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Window_placeholder" unique_id=1358269305]
+position = Vector2(572.75, 247)
+shape = SubResource("RectangleShape2D_656pw")
+
+[node name="Label" type="Label" parent="Window_placeholder" unique_id=956931362]
+visible = false
+offset_left = 454.0
+offset_top = 492.0
+offset_right = 693.0
+offset_bottom = 526.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "There's a car outside"
 
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_safe_zoom"]
 [connection signal="mouse_entered" from="Area2D" to="." method="change_cursor"]
 [connection signal="mouse_exited" from="Area2D" to="." method="change_cursor_back"]
+[connection signal="input_event" from="Window_placeholder" to="Window_placeholder" method="_look_out"]
+[connection signal="mouse_entered" from="Window_placeholder" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Window_placeholder" to="." method="change_cursor_back"]

@@ -3,20 +3,12 @@
 [ext_resource type="Script" uid="uid://drx1n3xyllslj" path="res://Scripts/manager.gd" id="1_xgt8o"]
 [ext_resource type="Script" uid="uid://bbod11mmuvts6" path="res://Scripts/front.gd" id="2_8v6rx"]
 [ext_resource type="Texture2D" uid="uid://dq6qe2pbv81c3" path="res://Assets/beach_houseV3.png" id="2_pwcy5"]
-[ext_resource type="Script" uid="uid://dagbtfhmp0an2" path="res://Scripts/frame.gd" id="4_6i4k7"]
 [ext_resource type="Texture2D" uid="uid://dxundbb7vrtih" path="res://Assets/button_test2.png" id="4_mupkl"]
 [ext_resource type="Texture2D" uid="uid://cufuwn0sur1jt" path="res://Assets/button_left.png" id="4_o8q1c"]
 [ext_resource type="Script" uid="uid://cb77wo8hjgh4h" path="res://Scripts/front_lock.gd" id="5_7h6wq"]
 [ext_resource type="PackedScene" uid="uid://0q3gdxdbd7yo" path="res://Inventory/inventory_ui.tscn" id="7_mupkl"]
 [ext_resource type="Script" uid="uid://c486f6ixcht0u" path="res://Scripts/sign_outside.gd" id="9_hus87"]
-[ext_resource type="Script" uid="uid://8erqt2cilxq0" path="res://Scripts/testingtimedlabels.gd" id="9_pwcy5"]
 [ext_resource type="Texture2D" uid="uid://brbdk2fshimll" path="res://Assets/button_upwards.png" id="10_jsx27"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgt8o"]
-size = Vector2(164, 94.25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsx27"]
-size = Vector2(60.47252, 32.498383)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hus87"]
 size = Vector2(58.67399, 31.694965)
@@ -53,14 +45,6 @@ offset_right = 1129.0
 offset_bottom = 360.0
 texture_normal = ExtResource("4_mupkl")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=40633047]
-script = ExtResource("4_6i4k7")
-target_scene = "uid://byys53dl8l0y4"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1935965037]
-position = Vector2(165, 241.125)
-shape = SubResource("RectangleShape2D_xgt8o")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=593530798]
 visible = false
 
@@ -82,21 +66,15 @@ offset_right = -37.0
 offset_bottom = 641.0
 grow_vertical = 1
 
-[node name="Area2D2" type="Area2D" parent="." unique_id=497135600 node_paths=PackedStringArray("appearence_1", "appearence_2")]
-script = ExtResource("9_pwcy5")
-appearence_1 = NodePath("Label")
-appearence_2 = NodePath("Label2")
+[node name="front_door" type="Area2D" parent="." unique_id=2079875447 node_paths=PackedStringArray("apperence") groups=["to_unlock"]]
+script = ExtResource("5_7h6wq")
+apperence = NodePath("Label")
 
-[node name="door" type="CollisionPolygon2D" parent="Area2D2" unique_id=459041664 groups=["to_unlock"]]
-polygon = PackedVector2Array(265, 113, 867, 114, 869, 526, 265, 526, 265, 374, 378, 349, 369, 313, 307, 328, 312, 360, 265, 370)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="front_door" unique_id=974551396 groups=["to_unlock"]]
+position = Vector2(597, 312)
+polygon = PackedVector2Array(-332, -199, 272, -199, 273, 215, -332, 215, -332, 65, -219, 36, -228, 3, -288, 17, -281, 49, -332, 62)
 
-[node name="sign" type="CollisionShape2D" parent="Area2D2" unique_id=1677274452 groups=["item_needed"]]
-position = Vector2(341.99774, 338.58603)
-rotation = -0.21838188
-shape = SubResource("RectangleShape2D_jsx27")
-debug_color = Color(0.7845117, 0.11516548, 0.99999994, 0.41960785)
-
-[node name="Label" type="Label" parent="Area2D2" unique_id=872646452]
+[node name="Label" type="Label" parent="front_door" unique_id=872646452]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -114,7 +92,17 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "The door is locked"
 
-[node name="Label2" type="Label" parent="Area2D2" unique_id=85353648]
+[node name="sign_outside" type="Area2D" parent="." unique_id=1394688758 node_paths=PackedStringArray("apperence") groups=["item_needed"]]
+script = ExtResource("9_hus87")
+apperence = NodePath("Label2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sign_outside" unique_id=607291694 groups=["item_needed"]]
+position = Vector2(343, 339.00003)
+rotation = -0.24029621
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_hus87")
+
+[node name="Label2" type="Label" parent="sign_outside" unique_id=85353648]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -132,30 +120,10 @@ theme_override_font_sizes/font_size = 24
 text = "It's too far to see what is written
 "
 
-[node name="front_door" type="Area2D" parent="." unique_id=2079875447 node_paths=PackedStringArray("apperence") groups=["to_unlock"]]
-script = ExtResource("5_7h6wq")
-apperence = NodePath("../Area2D2/Label")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="front_door" unique_id=974551396]
-position = Vector2(359, 818)
-polygon = PackedVector2Array(-332, -199, 272, -199, 273, 215, -332, 215, -332, 65, -219, 36, -228, 3, -288, 17, -281, 49, -332, 62)
-
-[node name="sign_outside" type="Area2D" parent="." unique_id=1394688758 node_paths=PackedStringArray("apperence") groups=["item_needed"]]
-script = ExtResource("9_hus87")
-apperence = NodePath("../Area2D2/Label2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sign_outside" unique_id=607291694]
-position = Vector2(273.99997, 570)
-rotation = -0.24029621
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_hus87")
-
+[connection signal="mouse_entered" from="Control/Left" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Control/Left" to="." method="change_cursor_back"]
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
-[connection signal="input_event" from="Area2D" to="Area2D" method="_frame_zoom"]
-[connection signal="mouse_entered" from="Area2D" to="." method="change_cursor"]
-[connection signal="mouse_exited" from="Area2D" to="." method="change_cursor_back"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_inventory_ui"]
-[connection signal="input_event" from="Area2D2" to="Area2D2" method="_interact"]
-[connection signal="mouse_entered" from="Area2D2" to="." method="change_cursor"]
-[connection signal="mouse_exited" from="Area2D2" to="." method="change_cursor_back"]
+[connection signal="input_event" from="front_door" to="front_door" method="_lock_interaction"]
+[connection signal="input_event" from="sign_outside" to="sign_outside" method="_interact_with"]

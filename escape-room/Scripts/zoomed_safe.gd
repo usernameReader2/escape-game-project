@@ -29,6 +29,6 @@ func _on_forth_number_pressed() -> void:
 
 func _check_code() -> void:
 	if default_code == code_enter:
-		$HBoxContainer.hide()
+		$HBoxContainer.visible = false
 	else: 
 		print("no")
