@@ -46,7 +46,6 @@ offset_bottom = 360.0
 texture_normal = ExtResource("4_mupkl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=593530798]
-visible = false
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=700631158]
 offset_left = 32.0
@@ -66,9 +65,9 @@ offset_right = -37.0
 offset_bottom = 641.0
 grow_vertical = 1
 
-[node name="front_door" type="Area2D" parent="." unique_id=2079875447 node_paths=PackedStringArray("apperence") groups=["to_unlock"]]
+[node name="front_door" type="Area2D" parent="." unique_id=2079875447 node_paths=PackedStringArray("appearance") groups=["to_unlock"]]
 script = ExtResource("5_7h6wq")
-apperence = NodePath("Label")
+appearance = NodePath("Label")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="front_door" unique_id=974551396 groups=["to_unlock"]]
 position = Vector2(597, 312)
@@ -92,9 +91,9 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "The door is locked"
 
-[node name="sign_outside" type="Area2D" parent="." unique_id=1394688758 node_paths=PackedStringArray("apperence") groups=["item_needed"]]
+[node name="sign_outside" type="Area2D" parent="." unique_id=1394688758 node_paths=PackedStringArray("appearance") groups=["item_needed"]]
 script = ExtResource("9_hus87")
-apperence = NodePath("Label2")
+appearance = NodePath("Label2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sign_outside" unique_id=607291694 groups=["item_needed"]]
 position = Vector2(343, 339.00003)
@@ -123,6 +122,8 @@ text = "It's too far to see what is written
 [connection signal="mouse_entered" from="Control/Left" to="." method="change_cursor"]
 [connection signal="mouse_exited" from="Control/Left" to="." method="change_cursor_back"]
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
+[connection signal="mouse_entered" from="Control/Right" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Control/Right" to="." method="change_cursor_back"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_inventory_ui"]
 [connection signal="input_event" from="front_door" to="front_door" method="_lock_interaction"]

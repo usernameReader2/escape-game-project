@@ -30,5 +30,6 @@ func _on_forth_number_pressed() -> void:
 func _check_code() -> void:
 	if default_code == code_enter:
 		$HBoxContainer.visible = false
+		$Area2D.visible = true
 	else: 
 		print("no")

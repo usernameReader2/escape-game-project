@@ -119,7 +119,11 @@ position = Vector2(969.875, 452.625)
 shape = SubResource("RectangleShape2D_k5sem")
 debug_color = Color(0, 0.639548, 0.36757, 0.41960785)
 
+[connection signal="mouse_entered" from="Control/Right" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Control/Right" to="." method="change_cursor_back"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
+[connection signal="mouse_entered" from="Control/Left" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Control/Left" to="." method="change_cursor_back"]
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
 [connection signal="input_event" from="pillow" to="." method="_remove_pillow"]
 [connection signal="input_event" from="bedcovers_normal" to="." method="_pullaway"]

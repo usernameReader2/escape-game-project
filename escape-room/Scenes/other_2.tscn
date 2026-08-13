@@ -79,7 +79,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "There's a car outside"
 
+[connection signal="mouse_entered" from="Control/Left" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Control/Left" to="." method="change_cursor_back"]
 [connection signal="pressed" from="Control/Left" to="Control" method="_go_left"]
+[connection signal="mouse_entered" from="Control/Right" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Control/Right" to="." method="change_cursor_back"]
 [connection signal="pressed" from="Control/Right" to="Control" method="_go_right"]
 [connection signal="input_event" from="Area2D" to="Area2D" method="_safe_zoom"]
 [connection signal="mouse_entered" from="Area2D" to="." method="change_cursor"]

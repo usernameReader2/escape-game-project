@@ -4,6 +4,7 @@ var point = preload("res://Assets/cursor_point.png")
 var click = preload("res://Assets/cursor_click.png")
 
 @export var inv: Inventory
+@export var appearance:Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,3 +40,16 @@ func _pullaway(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 func _remove_pillow(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		$pillow.visible = false
+
+func _remove_cushion(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		$cushion.visible = false
+		$removed_cushion.visible = true
+		$couchbottom.visible = true
+		
+func _inspect_couchbottom(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		print("yy")
+		appearance.show()
+		await get_tree().create_timer(3.0).timeout
+		appearance.hide()

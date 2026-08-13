@@ -21,15 +21,6 @@ offset_right = 1611.5116
 offset_bottom = 942.0
 texture = ExtResource("2_yi8kf")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1617919862]
-visible = false
-offset_left = 274.0
-offset_top = 140.0
-offset_right = 937.0
-offset_bottom = 475.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
 [node name="Control" type="Control" parent="." unique_id=1304757445]
 layout_mode = 3
 anchors_preset = 0
@@ -81,16 +72,19 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 60
 icon = ExtResource("3_ol0xh")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1812570280]
+[node name="Area2D" type="Area2D" parent="Control" unique_id=1812570280]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1113058575]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Area2D" unique_id=1113058575]
 position = Vector2(593, 295)
 shape = SubResource("RectangleShape2D_5x0uu")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=499455334]
+[node name="Sprite2D" type="Sprite2D" parent="Control/Area2D" unique_id=499455334]
 position = Vector2(605, 300)
 texture = ExtResource("6_5x0uu")
 
+[connection signal="mouse_entered" from="Control/Button" to="." method="change_cursor"]
+[connection signal="mouse_exited" from="Control/Button" to="." method="change_cursor_back"]
 [connection signal="pressed" from="Control/Button" to="Control" method="_go_back"]
 [connection signal="pressed" from="Control/HBoxContainer/First_number" to="Control" method="_on_first_number_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/Second_number" to="Control" method="_on_second_number_pressed"]

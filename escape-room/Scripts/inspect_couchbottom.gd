@@ -2,13 +2,10 @@ extends Area2D
 
 @export var appearance: Label
 
-func _ready():
-	pass
 
-func _lock_interaction(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _inspect_couchbottom(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		print("The doors are locked")
+		print("yy")
 		appearance.show()
 		await get_tree().create_timer(3.0).timeout
 		appearance.hide()
-		
