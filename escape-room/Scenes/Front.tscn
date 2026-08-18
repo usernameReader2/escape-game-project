@@ -55,15 +55,13 @@ offset_bottom = 637.0
 texture_normal = ExtResource("10_jsx27")
 
 [node name="Inventory_UI" parent="CanvasLayer" unique_id=966913019 instance=ExtResource("7_mupkl")]
-anchors_preset = 5
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = -37.0
-offset_top = 641.0
-offset_right = -37.0
-offset_bottom = 641.0
-grow_vertical = 1
+offset_top = 0.0
+offset_bottom = 0.0
+grow_vertical = 0
 
 [node name="front_door" type="Area2D" parent="." unique_id=2079875447 node_paths=PackedStringArray("appearance") groups=["to_unlock"]]
 script = ExtResource("5_7h6wq")

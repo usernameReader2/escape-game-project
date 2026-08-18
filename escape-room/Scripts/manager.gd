@@ -11,21 +11,24 @@ func _ready() -> void:
 	pass # Replace with function body.
 	Input.set_custom_mouse_cursor(point)
 
+#cursor changes when it hovers over a clickable/interactable area to show the user something will happen when the area is click on
 func change_cursor():
 	Input.set_custom_mouse_cursor(click)
-	
+
+#cursor changes back to 'pointing' when moving out of a clickable/interactable area
 func change_cursor_back():
 	Input.set_custom_mouse_cursor(point)
 
 func _inventory_ui() -> void:
-	pass # Replace with function body.
+	print(InventoryGlobal)
 
-
+#For zoomed_frame, causes the 'frame' to move out of the way to reveal the item underneath
 func _swing_away(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		$frame_normal.visible = false
 		$frame_away.visible = true
 
+#For zoomed_frame, causes the 'frame' to move back to it's previous position, mostly for 'realism'
 func _swing_back(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		$frame_away.visible = false
@@ -36,7 +39,8 @@ func _pullaway(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		$bedcovers_normal.visible = false
 		$bedcovers_pulled.visible = true
-
+		
+#In the 'Back' scene when this area is clicked on it gets removed
 func _remove_pillow(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		$pillow.visible = false

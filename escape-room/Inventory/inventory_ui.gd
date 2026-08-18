@@ -3,6 +3,7 @@ extends Control
 var is_open = false
 
 func _ready():
+	InventoryGlobal.emit_signal("inventory_updated")
 	close()
 	
 func _process(delta: float) -> void:

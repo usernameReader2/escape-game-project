@@ -7,3 +7,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1255027356]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1827774707]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=1558825273]
+layout_mode = 2

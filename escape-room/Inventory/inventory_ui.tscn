@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0q3gdxdbd7yo"]
 
 [ext_resource type="Script" uid="uid://cs2g5hqp5n6a5" path="res://Inventory/inventory_ui.gd" id="1_se627"]
+[ext_resource type="Texture2D" uid="uid://b1ox1jdi3h3oo" path="res://Assets/menus_baseV2.png" id="2_n0pvb"]
 [ext_resource type="PackedScene" uid="uid://usmwsc1v2740" path="res://Scenes/panel.tscn" id="2_o6avf"]
 [ext_resource type="Resource" uid="uid://3j11gl83y48d" path="res://Inventory/items/key.tres" id="3_6gduq"]
 
@@ -15,7 +16,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_se627")
 
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2019535576]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -124.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_n0pvb")
+patch_margin_left = 100
+patch_margin_top = 50
+patch_margin_right = 100
+patch_margin_bottom = 50
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=574568256]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -37,13 +58,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -427.5
-offset_top = -88.0
-offset_right = 427.5
-offset_bottom = -8.0
+offset_left = -562.0
+offset_top = -103.0
+offset_right = 483.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 95
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Panel" parent="HBoxContainer" unique_id=471398129 instance=ExtResource("2_o6avf")]
@@ -83,9 +104,5 @@ layout_mode = 2
 item = ExtResource("3_6gduq")
 
 [node name="Panel11" parent="HBoxContainer" unique_id=1317748897 instance=ExtResource("2_o6avf")]
-layout_mode = 2
-item = ExtResource("3_6gduq")
-
-[node name="Panel12" parent="HBoxContainer" unique_id=507422386 instance=ExtResource("2_o6avf")]
 layout_mode = 2
 item = ExtResource("3_6gduq")

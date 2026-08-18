@@ -4,29 +4,35 @@ var default_code = [0, 0, 0, 0]
 var code_enter = [3, 9, 2, 4]
 var max: int = 10
 
+#Goes back to the previous scene where the safe came from (2)
 func _go_back() -> void:
 	get_tree().change_scene_to_file("res://Scenes/other_2.tscn")
 	
+#Changes the first number 
 func _on_first_number_pressed() -> void:
 	default_code[0] = (default_code[0] + int(1)) % max
 	$HBoxContainer/First_number.text = str(default_code[0])
 	print(default_code)
 
+#Changes the second number 
 func _on_second_number_pressed() -> void:
 	default_code[1] = (default_code[1] + int(1)) % max
 	$HBoxContainer/Second_number.text = str(default_code[1])
 	print(default_code)
 
+#Changes the third number 
 func _on_third_number_pressed() -> void:
 	default_code[2] = (default_code[2] + int(1)) % max
 	$HBoxContainer/Third_number.text = str(default_code[2])
 	print(default_code)
 
+#Changes the fourth number 
 func _on_forth_number_pressed() -> void:
 	default_code[3] = (default_code[3] + int(1)) % max
 	$HBoxContainer/Forth_number.text = str(default_code[3])
 	print(default_code)
 
+#Changes the code entered is the same as the set code for the safe or not, if it is the safe will 'open'
 func _check_code() -> void:
 	if default_code == code_enter:
 		$HBoxContainer.visible = false

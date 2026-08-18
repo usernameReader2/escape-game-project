@@ -7,6 +7,7 @@ signal inventory_updated
 
 func _ready() -> void:
 	items_invy.resize(inv_size)
+	print("here")
 	
 func add_item():
 	inventory_updated.emit()
